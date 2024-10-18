@@ -9,5 +9,11 @@ namespace WCFKOISTSTEM.SERVICE
     {
         [OperationContract]
         List<Travel> GetTravels();
+        [OperationContract]
+        bool CreateOrUpdateTravel(Travel travel);
+        [OperationContract]
+        bool DeleteTravel(string id);
+        [OperationContract]
+        Travel GetTravelById(string id);
     }
 }

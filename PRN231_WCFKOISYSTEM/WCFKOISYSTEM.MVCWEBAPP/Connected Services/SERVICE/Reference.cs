@@ -9,96 +9,35 @@
 //------------------------------------------------------------------------------
 
 namespace WCFKOISYSTEM.MVCWEBAPP.SERVICE {
-    using System.Runtime.Serialization;
-    using System;
     
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Travel", Namespace="http://schemas.datacontract.org/2004/07/WCFKOISTSTEM.SERVICE")]
-    [System.SerializableAttribute()]
-    public partial class Travel : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Guid IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string LocationField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NameField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Guid Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Location {
-            get {
-                return this.LocationField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.LocationField, value) != true)) {
-                    this.LocationField = value;
-                    this.RaisePropertyChanged("Location");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Name {
-            get {
-                return this.NameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NameField, value) != true)) {
-                    this.NameField = value;
-                    this.RaisePropertyChanged("Name");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="SERVICE.IService1")]
     public interface IService1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTravels", ReplyAction="http://tempuri.org/IService1/GetTravelsResponse")]
-        WCFKOISYSTEM.MVCWEBAPP.SERVICE.Travel[] GetTravels();
+        WCFKOISTSTEM.SERVICE.Travel[] GetTravels();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTravels", ReplyAction="http://tempuri.org/IService1/GetTravelsResponse")]
-        System.Threading.Tasks.Task<WCFKOISYSTEM.MVCWEBAPP.SERVICE.Travel[]> GetTravelsAsync();
+        System.Threading.Tasks.Task<WCFKOISTSTEM.SERVICE.Travel[]> GetTravelsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateOrUpdateTravel", ReplyAction="http://tempuri.org/IService1/CreateOrUpdateTravelResponse")]
+        bool CreateOrUpdateTravel(WCFKOISTSTEM.SERVICE.Travel travel);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateOrUpdateTravel", ReplyAction="http://tempuri.org/IService1/CreateOrUpdateTravelResponse")]
+        System.Threading.Tasks.Task<bool> CreateOrUpdateTravelAsync(WCFKOISTSTEM.SERVICE.Travel travel);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteTravel", ReplyAction="http://tempuri.org/IService1/DeleteTravelResponse")]
+        bool DeleteTravel(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteTravel", ReplyAction="http://tempuri.org/IService1/DeleteTravelResponse")]
+        System.Threading.Tasks.Task<bool> DeleteTravelAsync(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTravelById", ReplyAction="http://tempuri.org/IService1/GetTravelByIdResponse")]
+        WCFKOISTSTEM.SERVICE.Travel GetTravelById(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTravelById", ReplyAction="http://tempuri.org/IService1/GetTravelByIdResponse")]
+        System.Threading.Tasks.Task<WCFKOISTSTEM.SERVICE.Travel> GetTravelByIdAsync(string id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -128,12 +67,36 @@ namespace WCFKOISYSTEM.MVCWEBAPP.SERVICE {
                 base(binding, remoteAddress) {
         }
         
-        public WCFKOISYSTEM.MVCWEBAPP.SERVICE.Travel[] GetTravels() {
+        public WCFKOISTSTEM.SERVICE.Travel[] GetTravels() {
             return base.Channel.GetTravels();
         }
         
-        public System.Threading.Tasks.Task<WCFKOISYSTEM.MVCWEBAPP.SERVICE.Travel[]> GetTravelsAsync() {
+        public System.Threading.Tasks.Task<WCFKOISTSTEM.SERVICE.Travel[]> GetTravelsAsync() {
             return base.Channel.GetTravelsAsync();
+        }
+        
+        public bool CreateOrUpdateTravel(WCFKOISTSTEM.SERVICE.Travel travel) {
+            return base.Channel.CreateOrUpdateTravel(travel);
+        }
+        
+        public System.Threading.Tasks.Task<bool> CreateOrUpdateTravelAsync(WCFKOISTSTEM.SERVICE.Travel travel) {
+            return base.Channel.CreateOrUpdateTravelAsync(travel);
+        }
+        
+        public bool DeleteTravel(string id) {
+            return base.Channel.DeleteTravel(id);
+        }
+        
+        public System.Threading.Tasks.Task<bool> DeleteTravelAsync(string id) {
+            return base.Channel.DeleteTravelAsync(id);
+        }
+        
+        public WCFKOISTSTEM.SERVICE.Travel GetTravelById(string id) {
+            return base.Channel.GetTravelById(id);
+        }
+        
+        public System.Threading.Tasks.Task<WCFKOISTSTEM.SERVICE.Travel> GetTravelByIdAsync(string id) {
+            return base.Channel.GetTravelByIdAsync(id);
         }
     }
 }

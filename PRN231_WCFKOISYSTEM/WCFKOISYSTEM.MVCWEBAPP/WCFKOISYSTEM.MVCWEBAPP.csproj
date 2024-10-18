@@ -166,6 +166,7 @@
     <Content Include="Scripts\bootstrap.esm.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Properties\DataSources\WCFKOISTSTEM.SERVICE.Travel.datasource" />
     <None Include="Connected Services\SERVICE\Service1.wsdl" />
     <None Include="Connected Services\SERVICE\Service1.xsd">
       <SubType>Designer</SubType>
@@ -176,9 +177,6 @@
     <None Include="Connected Services\SERVICE\Service12.xsd">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="Connected Services\SERVICE\WCFKOISYSTEM.MVCWEBAPP.SERVICE.Travel.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />
@@ -204,6 +202,10 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Details.cshtml" />
+    <Content Include="Views\Home\Create.cshtml" />
+    <Content Include="Views\Home\Delete.cshtml" />
+    <Content Include="Views\Home\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -238,6 +240,12 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WCFKOISTSTEM.SERVICE\WCFKOISTSTEM.SERVICE.csproj">
+      <Project>{15853858-3eb4-4f75-893e-a5f5755c61fa}</Project>
+      <Name>WCFKOISTSTEM.SERVICE</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\SERVICE\" />

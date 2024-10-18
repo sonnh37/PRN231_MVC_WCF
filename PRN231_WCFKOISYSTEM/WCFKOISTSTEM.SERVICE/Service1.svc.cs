@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace WCFKOISTSTEM.SERVICE
 {
@@ -9,10 +10,49 @@ namespace WCFKOISTSTEM.SERVICE
     {
         private TravelService travelService = new TravelService();
 
+        public bool CreateOrUpdateTravel(Travel travel)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(travel.Id))
+                {
+                    travelService.CreateTravel(travel);
+                }
+                else
+                {
+                    travelService.UpdateTravel(travel);
+                }
+                return true; 
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+        public bool DeleteTravel(string id)
+        {
+            try
+            {
+                travelService.DeleteTravel(id);
+                return true; 
+            }
+            catch (Exception ex)
+            {
+                return false; 
+            }
+        }
+
         public List<Travel> GetTravels()
         {
             return travelService.GetTravels();
         }
+
+        public Travel GetTravelById(string id)
+        {
+            return travelService.GetTravelById(id);
+        }
+
     }
 
 
