@@ -62,6 +62,25 @@ namespace Net1711_231_ASM3_SE172092_NGUYENHOANGSON.MVCWebApp.Controllers
             }
         }
 
+        public ActionResult Details(Guid id)
+        {
+            var client = new Service1Client();
+            try
+            {
+                var bookingRequest = client.GetBookingRequestById(id);
+                return View(bookingRequest);
+            }
+            catch (Exception ex)
+            {
+                client.Abort();
+                return View("Error", new HandleErrorInfo(ex, "BookingRequest", "Edit"));
+            }
+            finally
+            {
+                client.Close();
+            }
+        }
+
         public ActionResult Create()
         {
             var client = new Service1Client();
