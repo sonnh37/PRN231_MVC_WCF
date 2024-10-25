@@ -16,11 +16,6 @@ namespace Net1711_231_ASM4_SE172092_NGUYENHOANGSON.MVCWebApp.Controllers
             try
             {
                 var result = client.GetBookingRequests();
-                ViewBag.Customers = new SelectList(client.GetCustomers(), "Id", "Username");
-                ViewBag.Travels = new SelectList(client.GetTravels(), "Id", "Name");
-                ViewBag.Status = new SelectList(Enum.GetValues(typeof(BookingStatus)).Cast<BookingStatus>()
-                                        .Select(s => new { Value = (int)s, Text = s.ToString() }),
-                                        "Value", "Text");
                 client.Close();
                 return View(result.ToList());
             }
@@ -43,8 +38,8 @@ namespace Net1711_231_ASM4_SE172092_NGUYENHOANGSON.MVCWebApp.Controllers
         .Cast<BookingStatus>()
         .Select(e => new SelectListItem
         {
-            Value = e.ToString(), // Lấy tên của enum làm giá trị
-            Text = e.ToString() // Lấy tên của enum làm văn bản hiển thị
+            Value = e.ToString(),
+            Text = e.ToString()
         });
                 bookingRequest.UpdatedDate = DateTime.Now;
                 return View(bookingRequest);
